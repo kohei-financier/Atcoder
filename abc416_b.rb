@@ -1,13 +1,14 @@
 # 問題
-# https://atcoder.jp/contests/abc415/tasks/abc415_b
-
+# https://atcoder.jp/contests/abc416/tasks/abc416_b
 s = gets.chomp.split("").map(&:to_s)
-ind = []
-s.each_with_index do |k, i|
-  if k == "#"
-    ind << i+1
+ans = []
+s.size.times do |i|
+  if s[i] == "#"
+    ans << "#"
+  elsif i == 0 || s[i-1] == "#"
+    ans << "o"
+  else
+    ans << "."
   end
 end
-ind.each_slice(2) do |a, b|
-  puts "#{a},#{b}"
-end
+puts ans.join
